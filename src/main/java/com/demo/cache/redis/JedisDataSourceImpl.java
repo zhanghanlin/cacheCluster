@@ -6,12 +6,14 @@ import org.springframework.stereotype.Repository;
 import redis.clients.jedis.ShardedJedis;
 import redis.clients.jedis.ShardedJedisPool;
 
-@Repository("jdeisDataSource")
+import javax.annotation.Resource;
+
+@Repository("jedisDataSource")
 public class JedisDataSourceImpl implements JedisDataSource {
 
     final static Logger LOG = LoggerFactory.getLogger(JedisDataSourceImpl.class);
 
-//    @Resource
+    @Resource
     ShardedJedisPool shardedJedisPool;
 
     @Override

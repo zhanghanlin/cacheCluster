@@ -5,12 +5,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
 import redis.clients.jedis.ShardedJedis;
 
+import javax.annotation.Resource;
+
 @Repository
 public class RedisTemplate {
 
     final static Logger LOG = LoggerFactory.getLogger(RedisTemplate.class);
 
-//    @Resource
+    @Resource
     JedisDataSource jedisDataSource;
 
     public void disconnect() {
