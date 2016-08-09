@@ -8,7 +8,8 @@
             <!-- Format %d - date %thread - threadName %-5levelLevel - from the tree
                 shows the width of 5 characters %msg - log info %n - newlines -->
             <pattern>
-                %d %yellow(%-1level) --- [%thread] %cyan(%logger[%file:%line]) : %msg %n
+                <!--%d %yellow(%-1level) -&#45;&#45; [%thread] %cyan(%logger[%file:%line]) : %msg %n-->
+                %d %-1level --- [%thread] %logger[%file:%line] : %msg %n
             </pattern>
         </encoder>
     </appender>

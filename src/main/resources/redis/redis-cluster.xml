@@ -2,17 +2,20 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <description>Spring Jedis 集群</description>
+
+    <context:property-placeholder location="classpath:redis/redis.properties" file-encoding="UTF-8"/>
 
     <!-- 配置redis客户端集群版 单机版和集群版的jedis只能存在一个 -->
     <bean id="jedisCluster" class="redis.clients.jedis.JedisCluster">
         <constructor-arg>
             <set>
                 <bean class="redis.clients.jedis.HostAndPort"
-                      c:host="${redis01.real.cluster.client.host}"
-                      c:port="${redis01.real.cluster.client.port}"/>
+                      c:host="${redis.1.host}" c:port="${redis.1.port}"/>
             </set>
         </constructor-arg>
     </bean>

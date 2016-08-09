@@ -2,12 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
     <description>Spring Jedis 单机</description>
+
+    <context:property-placeholder location="classpath:redis/redis.properties" file-encoding="UTF-8"/>
     <bean id="jedisPool" class="redis.clients.jedis.JedisPool"
-          c:host="${redis.single.client.host}"
-          c:port="${redis.single.client.port}">
+          c:host="${redis.1.host}"
+          c:port="${redis.1.port}">
     </bean>
     <!-- 配置redis客户端实现类 -->
     <bean id="jedisClientSingle" class="com.demo.cache.redis.JedisClientSingle"/>
