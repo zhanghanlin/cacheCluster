@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <description>Spring Jedis 单机</description>
+    <bean id="jedisPool" class="redis.clients.jedis.JedisPool"
+          c:host="${redis.single.client.host}"
+          c:port="${redis.single.client.port}">
+    </bean>
+    <!-- 配置redis客户端实现类 -->
+    <bean id="jedisClientSingle" class="com.demo.cache.redis.JedisClientSingle"/>
+</beans>
